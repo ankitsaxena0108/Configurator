@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+                             
+ <jboss-web>
+    <context-root>billingsystem</context-root>
+    <resource-ref>
+    <res-ref-name>jdbc/oracleDS</res-ref-name>
+    <jndi-name>java:/oracleDS</jndi-name>
+</resource-ref>
+</jboss-web>                         
+    
+    
+

@@ -1,0 +1,424 @@
+<div ng-cloak="" class="tabsdemoDynamicHeight" ng-app="MyApp">
+  <md-content>
+    <md-tabs md-dynamic-height="" md-border-bottom="">
+      <md-tab label="Basic Detail">
+        <md-content class="md-padding">
+          <h1 class="md-display-1">{{vm.source.sourceName}}</h1> 
+          <md-card>
+	
+			<div>
+				<md-card-title> <md-card-title-text><b>Source Configuration Details</b></md-card-title-text> </md-card-title>
+			</div>
+			<div>
+				<md-card-content layout-align="center start">
+				
+				 <md-table-container>
+			<table md-table class="md-data-table" >
+				<thead md-head>
+					<tr md-row class="myheader">
+						<th md-column style="border: 1px solid grey; text-align: center" ng-repeat="hdrdetail in vm.configTable">{{hdrdetail.column}}</th>
+					</tr>
+				</thead>
+				<tbody md-body>
+					<tr md-row >
+						<td ng-repeat="data in vm.configTable" md-cell style="border: 1px solid grey; text-align: center">{{data.row}}</td>
+					</tr>
+				</tbody>
+			</table>
+			</md-table-container>  
+		
+		
+				</md-card-content>
+			</div> 
+			
+			</md-card>
+        </md-content>
+      </md-tab>
+      <md-tab label="Incoming Details">
+        <md-content class="md-padding">
+          <h1 class="md-display-1">{{vm.source.sourceName}}</h1> 
+          			<md-card>
+			<md-card-content> <!-- <md-card-header
+			layout-align="left"> <span class="md-title">Incoming
+			Details</span> </md-card-header>  --> 
+					<div class='md-padding' layout="row">
+			<md-card flex>
+			<div>
+				<md-card-title> <md-card-title-text><b>Header details</b></md-card-title-text> </md-card-title>
+			</div>
+			<div>
+				<md-card-content layout-align="center start">
+				<div ng-repeat="hdrdetail in vm.inComputeHdrTable" layout-wrap>
+					<md-divider></md-divider>
+					<md-list-item class="md-2-line" ng-if="hdrdetail.row!=undefined && hdrdetail.row!='' && hdrdetail.row!='currBatch'">
+					<div class="md-list-item-text" style="overflow-wrap: break-word;">
+						<h3><b>{{hdrdetail.column}}</b></h3>
+						<p>{{hdrdetail.row}}</p>
+					</div>
+					</md-list-item>
+					<md-list-item class="md-2-line" ng-click="null" ng-if="hdrdetail.row==undefined || hdrdetail.row==''" flex>
+					<div class="md-list-item-text" layout="column">
+						<h3><b>{{hdrdetail.column}}</b></h3>
+						<p>Not Defined</p>
+					</div>
+					</md-list-item>
+					<md-divider></md-divider>
+				</div>
+				</md-card-content>
+			</div>
+		
+			</md-card>
+			<md-card flex>
+			<div>
+				<md-card-title> <md-card-title-text><b>Parser Config</b></md-card-title-text> </md-card-title>
+			</div>
+			<div>
+				<md-card-content layout-align="center start">
+				<div ng-repeat="hdrdetail in vm.inComputeDetTable" layout-wrap>
+					<md-divider></md-divider>
+					<md-list-item class="md-2-line" ng-if="hdrdetail.row!=undefined && hdrdetail.row!='' && hdrdetail.column!='currBatch'">
+					<div class="md-list-item-text" style="overflow-wrap: break-word;">
+						<h3><b>{{hdrdetail.column}}</b></h3>
+						<p>{{hdrdetail.row}}</p>
+					</div>
+					</md-list-item>
+					<md-list-item class="md-2-line" ng-click="null" ng-if="hdrdetail.row==undefined || hdrdetail.row==''" flex>
+					<div class="md-list-item-text" layout="column">
+						<h3><b>{{hdrdetail.column}}</b></h3>
+						<p>Not Defined</p>
+					</div>
+					</md-list-item>
+					<md-divider></md-divider>
+				</div>
+				</md-card-content>
+			</div>
+			
+			
+			</md-card>
+			<md-card flex>
+			<div>
+				<md-card-title> <md-card-title-text><b>Footer details</b></md-card-title-text> </md-card-title>
+			</div>
+			<div>
+				<md-card-content layout-align="center start">
+				<div ng-repeat="hdrdetail in vm.inComputeFtrTable" layout-wrap>
+					<md-divider></md-divider>
+					<md-list-item class="md-2-line" ng-if="hdrdetail.row!=undefined && hdrdetail.row!=''">
+					<div class="md-list-item-text" style="overflow-wrap: break-word;">
+						<h3><b>{{hdrdetail.column}}</b></h3>
+						<p>{{hdrdetail.row}}</p>
+					</div>
+					</md-list-item>
+					<md-list-item class="md-2-line" ng-click="null" ng-if="hdrdetail.row==undefined || hdrdetail.row==''" flex>
+					<div class="md-list-item-text" layout="column">
+						<h3><b>{{hdrdetail.column}}</b></h3>
+						<p>Not Defined</p>
+					</div>
+					</md-list-item>
+					<md-divider></md-divider>
+				</div>
+				</md-card-content>
+			</div>
+			
+			</md-card>
+		</div>
+			
+			
+			 </md-card-content> 
+			 
+			 </md-card>
+        </md-content>
+      </md-tab>
+      <md-tab label="Outgoing
+			Details">
+        <md-content class="md-padding">
+          <h1 class="md-display-1">{{vm.source.sourceName}}</h1> 
+          <md-card> <md-card-content> <!-- <md-card-header
+			layout-align="left"> <span class="md-title">Outgoing
+			Details</span> </md-card-header>  -->			<div class='md-padding' layout="row" layout-wrap>
+			<md-card flex>
+			<div>
+				<md-card-title> <md-card-title-text><b>Header details</b></md-card-title-text> </md-card-title>
+			</div>
+			<div>
+				<md-card-content layout-align="center start">
+				<div ng-repeat="hdrdetail in vm.outComputeHdrTable" layout-wrap>
+					<md-divider></md-divider>
+					<md-list-item class="md-2-line" ng-if="hdrdetail.row!=undefined && hdrdetail.row!='' && hdrdetail.column!='currBatch'">
+					<div class="md-list-item-text" style="overflow-wrap: break-word;">
+						<h3><b>{{hdrdetail.column}}</b></h3>
+						<p>{{hdrdetail.row}}</p>
+					</div>
+					</md-list-item>
+					<md-list-item class="md-2-line" ng-click="null" ng-if="hdrdetail.row==undefined || hdrdetail.row==''" flex>
+					<div class="md-list-item-text" layout="column">
+						<h3><b>{{hdrdetail.column}}</b></h3>
+						<p>Not Defined</p>
+					</div>
+					</md-list-item>
+					<md-divider></md-divider>
+				</div>
+				</md-card-content>
+			</div>
+			
+			
+			</md-card>
+			<md-card flex>
+			<div>
+				<md-card-title> <md-card-title-text><b>Template Config</b></md-card-title-text> </md-card-title>
+			</div>
+			<div>
+				<md-card-content layout-align="center start">
+				<div ng-repeat="hdrdetail in vm.outComputeDetTable" layout-wrap>
+					<md-divider></md-divider>
+					<md-list-item class="md-2-line" ng-if="hdrdetail.row!=undefined && hdrdetail.row!=''">
+					<div class="md-list-item-text" style="overflow-wrap: break-word;">
+						<h3><b>{{hdrdetail.column}}</b></h3>
+						<p>{{hdrdetail.row}}</p>
+					</div>
+					</md-list-item>
+					<md-list-item class="md-2-line" ng-click="null" ng-if="hdrdetail.row==undefined || hdrdetail.row==''" flex>
+					<div class="md-list-item-text" layout="column">
+						<h3><b>{{hdrdetail.column}}</b></h3>
+						<p>Not Defined</p>
+					</div>
+					</md-list-item>
+					<md-divider></md-divider>
+				</div>
+				</md-card-content>
+			</div>
+			
+			</md-card>
+			<md-card flex>
+			<div>
+				<md-card-title> <md-card-title-text><b>Footer details</b></md-card-title-text> </md-card-title>
+			</div>
+			<div>
+				<md-card-content layout-align="center start">
+				<div ng-repeat="hdrdetail in vm.outComputeFtrTable" layout-wrap>
+					<md-divider></md-divider>
+					<md-list-item class="md-2-line" ng-if="hdrdetail.row!=undefined && hdrdetail.row!=''">
+					<div class="md-list-item-text" style="overflow-wrap: break-word;">
+						<h3><b>{{hdrdetail.column}}</b></h3>
+						<p>{{hdrdetail.row}}</p>
+					</div>
+					</md-list-item>
+					<md-list-item class="md-2-line" ng-click="null" ng-if="hdrdetail.row==undefined || hdrdetail.row==''" flex>
+					<div class="md-list-item-text" layout="column">
+						<h3><b>{{hdrdetail.column}}</b></h3>
+						<p>Not Defined</p>
+					</div>
+					</md-list-item>
+					<md-divider></md-divider>
+				</div>
+				</md-card-content>
+			</div>
+			
+			</md-card>
+			<md-card flex>
+			<div>
+				<md-card-title> <md-card-title-text><b>Source details</b></md-card-title-text> </md-card-title>
+			</div>
+			<div>
+				<md-card-content layout-align="center start">
+				<div ng-repeat="hdrdetail in vm.outTable" layout-wrap>
+					<md-divider></md-divider>
+					<md-list-item class="md-2-line" ng-if="hdrdetail.row!=undefined && hdrdetail.row!='' ">
+					<div class="md-list-item-text" style="overflow-wrap: break-word;">
+						<h3><b>{{hdrdetail.column}}</b></h3>
+						<p>{{hdrdetail.row}}</p>
+					</div>
+					</md-list-item>
+					<md-list-item class="md-2-line" ng-click="null" ng-if="hdrdetail.row==undefined || hdrdetail.row==''" flex>
+					<div class="md-list-item-text" layout="column">
+						<h3><b>{{hdrdetail.column}}</b></h3>
+						<p>Not Defined</p>
+					</div>
+					</md-list-item>
+					<md-divider></md-divider>
+				</div>
+				</md-card-content>
+			</div>
+			
+			</md-card>
+        </md-content>
+      </md-tab>
+      <md-tab label="Schedule Info">
+        <md-content class="md-padding" >
+          <h1 class="md-display-1">{{vm.source.sourceName}}</h1> 
+          <md-card> <md-card-content align="center"> 
+          
+          
+    <!--      <div layout="row" >
+				<md-input-container class="md-block" > 
+						<label translate>Category</label> 
+						<md-select placeholder="" ng-model="vm.sourcesystem.category" ng-change="" required >
+    							<md-option value="collections">Collections</md-option>
+    							<md-option value="payouts">Payouts</md-option> 
+    							<md-option value="enrollment">Enrollment</md-option>     						   		
+						</md-select>
+				</md-input-container>
+			
+				
+				<md-input-container class="md-block" > 
+						<label translate>Payment Type</label> 
+						<md-select placeholder="" ng-model="vm.sourcesystem.paymentType" ng-change="getSelectedSchedule()" required >
+    							<md-option value="directdebit">Direct Debit</md-option>
+    							<md-option value="debit">Debit</md-option>
+    							<md-option value="credit">Credit</md-option>
+    							<md-option value="ebanking">E-banking</md-option>
+    							<md-option value="biro">Biro</md-option>
+    							 						   		
+						</md-select>
+				</md-input-container>
+			
+			
+		</div>
+		 -->
+		
+
+		<div layout="row" layout-align="left">
+			Start Time:
+			<md-input-container class="md-block"> <label>Hrs.</label>
+				<input type="text" id="startTimeHrs" name="startTime" ng-model="vm.sourcesystem.scheduleDetails.startTime_in_Hr" required> 
+			</md-input-container>
+			<md-input-container> <label>Min</label>
+			 	<input type="text" id="startTimeMins" name="startTimeMins." ng-model="vm.sourcesystem.scheduleDetails.startTime_in_Min" required> 
+			</md-input-container>
+
+
+			
+		</div>
+
+		<div layout="row" layout-align="left">Recurrence: </div> <br>
+		
+		<div layout="row">
+	
+			<md-radio-group ng-model="vm.sourcesystem.scheduleDetails.recurrenceType.freqType" ng-init="data.default = 'hourly'">
+			
+			<div layout="row">
+				<md-radio-button value="hourly"  ng-click="vm.showHoulry=true;vm.showDaily=false;vm.showWeekly=false;vm.showMonthly=false">Hourly </md-radio-button>
+				
+					<div layout="row">
+						<md-input-container class="md-block"> <label>Every</label>
+						<input type="text" id="recurrenceHourly" name="recurrenceHourly" ng-model="vm.sourcesystem.scheduleDetails.recurrenceType.hourly.everyHr" required>  
+						</md-input-container>
+						
+						<label>Hrs.</label>
+						
+					</div>
+			
+			</div>
+			
+			<div layout="row">
+			
+				<md-radio-button value="daily" ng-click="vm.showHoulry=false;vm.showDaily=true;vm.showWeekly=false;vm.showMonthly=false">Daily</md-radio-button> 
+			
+					<div layout="row" layout-align="left" ng-show=vm.showDaily>
+							<md-radio-group class="md-primary" ng-model="vm.sourcesystem.recurrenceType.daily.daily" >
+       								 <md-radio-button value="daily">Daily</md-radio-button>
+        							        
+   							 </md-radio-group>
+					</div>
+			</div>
+			
+			
+			<div layout="row">
+			<md-radio-button value="weekly" ng-click="vm.showHoulry=false;vm.showDaily=false;vm.showWeekly=true;vm.showMonthly=false">Weekly</md-radio-button> 
+				
+					
+				
+					<div layout="row" layout-align="left" ng-show=vm.showWeekly>
+							 <md-checkbox class="md-primary" ng-model="vm.sourcesystem.scheduleDetails.recurrenceType.weekly.sun" aria-label="Primary Checkbox"> Sun </md-checkbox>
+							  <md-checkbox class="md-primary" ng-model="vm.sourcesystem.scheduleDetailsscheduleDetails.recurrenceType.weekly.mon" aria-label="Primary Checkbox"> Mon </md-checkbox>
+							   <md-checkbox class="md-primary" ng-model="vm.sourcesystem.scheduleDetails.recurrenceType.weekly.tue" aria-label="Primary Checkbox"> Tue </md-checkbox>
+							   <md-checkbox class="md-primary" ng-model="vm.sourcesystem.scheduleDetails.recurrenceType.weekly.wed" aria-label="Primary Checkbox"> Wed </md-checkbox>
+							   <md-checkbox class="md-primary" ng-model="vm.sourcesystem.scheduleDetails.recurrenceType.weekly.thu" aria-label="Primary Checkbox"> Thu </md-checkbox>
+							   <md-checkbox class="md-primary" ng-model="vm.sourcesystem.scheduleDetails.recurrenceType.weekly.fri" aria-label="Primary Checkbox"> Fri</md-checkbox>
+							   <md-checkbox class="md-primary" ng-model="vm.sourcesystem.scheduleDetails.recurrenceType.weekly.sat" aria-label="Primary Checkbox"> Sat</md-checkbox>
+				  </div>
+			</div>	
+			
+			
+				<div layout="row">
+					
+						
+						<md-radio-button value="monthly" ng-click="vm.showHoulry=false;vm.showDaily=false;vm.showWeekly=false;vm.showMonthly=true">Monthly</md-radio-button> 
+						
+				
+							<md-radio-group class="md-primary" ng-model="vm.sourcesystem.scheduleDetails.recurrenceType.monthly.monthlyFreType" ng-show=vm.showMonthly>
+       								<div layout="row">
+       								 	<md-radio-button value="day" ng-click="vm.day=true;vm.theDay=false">Day</md-radio-button>
+       								 	
+       								 	<md-input-container class="md-block" ng-show=vm.day> 
+												<label>of Day</label>
+												<input type="text" id="recurrenceDayOf" name="recurrenceDayOf" ng-model="vm.sourcesystem.scheduleDetails.recurrenceType.monthly.day" required> 
+										</md-input-container>
+										
+										<md-input-container class="md-block" ng-show=vm.day> 
+											 <label>Every</label>
+											 <input type="text" id="recurrenceMonthOf" name="recurrenceMonthOf" ng-model="vm.sourcesystem.scheduleDetails.recurrenceType.monthly.week" required> 
+										</md-input-container>
+       								 </div>
+       								 
+       								 <div layout="row">
+       								 
+       								   <md-input-container class="md-block"> 
+											<md-radio-button value="theDay"  ng-click="vm.day=false;vm.theDay=true">The</md-radio-button> 
+										</md-input-container> 
+										
+										<md-input-container class="md-block" ng-show=vm.theDay> 
+												<md-select placeholder="" ng-model="vm.sourcesystem.scheduleDetails.recurrenceType.monthly.the"  ng-show=vm.theDay required >
+    													<md-option value="first">First</md-option>
+    													<md-option value="second">Second</md-option>
+    													<md-option value="third">Third</md-option>
+    													<md-option value="fourth">Fourth</md-option>    		
+						 						</md-select>
+						 				</md-input-container>
+						 
+										<md-input-container class="md-block" ng-show=vm.theDay>	
+						 						<md-select placeholder="" ng-model="vm.sourcesystem.scheduleDetails.recurrenceType.monthly.day" required>
+    													<md-option value="monday">Monday</md-option>
+    													<md-option value="tuesday">Tuesday</md-option>
+    													<md-option value="wednesday">Wednesday</md-option>
+    													<md-option value="thursday">Thursday</md-option>
+    													<md-option value="friday">Friday</md-option>
+    													<md-option value="saturday">Saturday</md-option>    		
+						 						</md-select>
+						  			</md-input-container>
+									<div ng-show=vm.theDay> Of Every	</div>
+									<md-input-container class="md-block" ng-show=vm.theDay> 
+											<label>Months</label>
+											<input type="text" id="recurrenceMonthFreq" name="recurrenceMonthFreq" ng-model="vm.sourcesystem.scheduleDetails.recurrenceType.monthly.month" required> 
+									</md-input-container>
+									<div ng-show=vm.theDay> Month(s)	</div>
+       								 
+       								 
+       								 </div>
+        							        
+   							 	</md-radio-group>
+						
+						
+				</div>
+				
+							
+					</md-radio-group>	
+						
+				</div>
+				
+		
+
+		</md-card-content> 
+		
+		<md-card-actions layout="row" layout-align="center">
+					<md-button id="save" ng-click="vm.clickOk()" class="md-primary" aria-label="{{Save | triTranslate}}" translate="Save"> Save </md-button> 
+					<md-button id="cancel" ng-click="vm.clickCancel()" aria-label="{{'Cancel' | triTranslate}}" translate="Cancel">Cancel</md-button>
+
+		</md-card-actions>
+		
+		</md-card>
+        </md-content>
+      </md-tab>
+    </md-tabs>
+  </md-content>
+</div>

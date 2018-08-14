@@ -1,0 +1,53 @@
+<div>
+    <md-input-container class="md-block">
+        <label translate>Address Line 1</label>
+        <input name="address1" ng-model="vm.address.address1" ng-disabled="vm.readOnly" required>
+        <div ng-messages="addressForm.address1.$error" md-auto-hide="false" ng-show="addressForm.address1.$touched">
+            <div ng-message when="required">
+                <span translate>This field is required</span>
+            </div>
+        </div>
+    </md-input-container>
+    <md-input-container class="md-block">
+        <label translate>Address Line 2</label>
+        <input ng-model="vm.address.address2" ng-disabled="vm.readOnly">
+    </md-input-container>
+    <div layout layout-xs="column" flex>
+        <md-input-container flex>
+            <label translate>Phone</label>
+            <input ng-model="vm.address.phone" ng-disabled="vm.readOnly" required="required">
+        </md-input-container>
+        <md-input-container flex>
+            <label translate>Email</label>
+            <input type="email" ng-model="vm.address.email" ng-disabled="vm.readOnly" required="required">
+        </md-input-container>
+    </div>
+    <div layout layout-xs="column" flex>
+    	<md-input-container flex>
+            <label translate>Town</label>
+            <input ng-model="vm.address.city" ng-disabled="vm.readOnly">
+        </md-input-container>
+        <md-input-container flex>
+            <label translate>Zip</label>
+            <input name="pin" ng-model="vm.address.pin" ng-disabled="vm.readOnly">
+            <div ng-messages="addressForm.pin.$error" md-auto-hide="false" ng-show="addressForm.pin.$touched">
+                <div ng-message when="required">
+                    <span translate>This field is required</span>
+                </div>
+            </div>
+        </md-input-container>
+        <md-input-container flex>
+            <label translate>Country</label>
+            <md-select name="country" ng-model="vm.address.country" ng-disabled="vm.readOnly" required>
+                <md-option value="{{country.countryCode}}" ng-repeat="country in vm.countries" translate>{{country.description}}</md-option>
+            </md-select>
+            <div ng-messages="addressForm.country.$error" md-auto-hide="false" ng-show="addressForm.country.$touched">
+                <div ng-message when="required">
+                    <span translate>This field is required</span>
+                </div>
+            </div>
+        </md-input-container>
+    </div>
+    
+    <input ng-model="vm.address.id" hidden="true"/>
+</div>

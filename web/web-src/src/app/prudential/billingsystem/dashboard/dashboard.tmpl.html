@@ -1,0 +1,276 @@
+<div layout="row" layout-xs="column" layout-align="center">
+	<div flex="100" flex-xs="100">
+		<md-card>
+		<form name="dashboardForm">
+			<md-card> <md-card-content> <!-- <md-card-header layout-align="left"> <span class="md-title">Template
+				Details</span> </md-card-header> -->
+				<label><b>Template	Details</b></label>
+				<div layout layout-xs="column" flex="100">
+				<md-input-container class="md-block" flex=50> 
+				 <label translate>Category</label> <md-select name="categoryType"
+					placeholder="Category" ng-model="vm.category" ng-change="getSelectedTemplateDetails();getSelectedInputSchedule();getSelectedBankSchedule();"> 
+					<md-option value="Collection">Collection</md-option>
+				<md-option value="Payout">Payout</md-option> <md-option value="Enrollment">Enrollment</md-option> </md-select> 
+				</md-input-container>
+	
+				<md-input-container class="md-block" flex=50> <lf-ng-md-file-input id="fileName" name="fileName" lf-files="fileName"
+				lf-placeholder="{{vm.fileName}}" lf-required> 
+				
+				</lf-ng-md-file-input>
+			<div ng-messages="dashboardForm.fileName.$error" md-auto-hide="false" ng-show="dashboardForm.fileName.$touched">
+				<div ng-message when="required">
+					<span translate>Please upload a document</span>
+				</div>
+			</div>
+			</md-input-container>
+			<md-input-container class="md-block" flex="50">
+			<md-button class="md-icon-button" ng-click="vm.uploadFileTemplate()"
+								id="uploadButton"> <md-icon md-font-icon="zmdi zmdi-upload"></md-icon> </md-button>
+			<md-button class="md-icon-button" ng-click="vm.downloadFile()"
+								id="downloadButton"> <md-icon md-font-icon="zmdi zmdi-download"></md-icon> </md-button>
+			<!-- <md-card-actions layout="row" layout-align="end center"> <md-button class="md-primary md-raised" ng-click="vm.downloadFile()"
+				text="Download" id="downloadButton"> <md-icon md-font-icon="zmdi zmdi-download"></md-icon>Download</md-button> <md-button
+				class="md-primary md-raised" ng-click="vm.uploadFileTemplate()" text="Upload" id="uploadButton"> <md-icon
+				md-font-icon="zmdi zmdi-upload"></md-icon>Upload</md-button> </md-card-actions>  --></md-input-container> 
+				</div>
+				</md-card-content> </md-card>
+				
+				
+				<div class='md-padding' layout="row">
+			 
+				<md-card flex=50> <md-card-content> 
+				<label><b>Source
+				System Details</b></label>
+			<md-table-container>
+			<table md-table class="md-data-table">
+				<thead md-head>
+					<tr md-row class="myheader">
+						<th md-column style="border: 1px solid grey; text-align: center">Source System Name</th>
+						<th md-column style="border: 1px solid grey; text-align: center">Action</th>
+					</tr>
+				</thead>
+				<tbody md-body>
+					<tr md-row ng-repeat="detail in vm.sourceSystemName">
+						<td md-cell style="border: 1px solid grey; text-align: center">{{detail}}</td>
+						<td md-cell style="border: 1px solid grey; text-align: center"><md-button class="md-icon-button" ng-click="vm.editSourceConfig(detail)"
+								id="editSource"> <md-icon md-font-icon="zmdi zmdi-edit"></md-icon> </md-button></td>
+					</tr>
+				</tbody>
+			</table>
+			</md-table-container> 
+			</md-card-content></md-card>
+			<md-card flex=50> <md-card-content> 
+				<label><b>Bank Details</b></label>
+			<md-table-container>
+			<table md-table class="md-data-table">
+				<thead md-head>
+					<tr md-row class="myheader" style="background-color: rgb(0, 188, 212); color: white;">
+						<th md-column style="border: 1px solid grey; text-align: center">Bank Details</th>
+						<!-- 	<th md-column style="border: 1px solid grey; text-align: center">Category</th> -->
+						<th md-column style="border: 1px solid grey; text-align: center">Action</th>
+					</tr>
+				</thead>
+				<tbody md-body>
+					<tr md-row ng-repeat="detail in vm.bankSystemName">
+						<td md-cell style="border: 1px solid grey; text-align: center">{{detail}}</td>
+						<!-- <td md-cell style="border: 1px solid grey; text-align: center">{{}}</td> -->
+						<td md-cell style="border: 1px solid grey; text-align: center"><md-button class="md-icon-button" ng-click="vm.editBankConfig(detail)"
+								id="editBank"> <md-icon md-font-icon="zmdi zmdi-edit"></md-icon> </md-button></td>
+					</tr>
+				</tbody>
+			</table>
+			</md-table-container> </md-card-content></md-card>
+			</div>
+			
+			
+			
+			<md-card flex=100> 
+			<div class='md-padding' layout="row">
+			<md-card-header layout-align="left"> <span class="md-title">Input Feed Schedule</span> </md-card-header>
+			<div layout="row" flex=100>
+				<md-input-container class="md-block" flex=100> <label>Immediate</label> <input type="text" id="inputFeedSchedule"
+					name="inputFeedSchedule"  ng-disabled=true> </md-input-container>
+				<md-button class="md-icon-button" ng-click="vm.showInputFeed=true;" id="ipFeed"> <md-icon
+					md-font-icon="zmdi zmdi-edit"></md-icon> </md-button>
+			</div>
+			<!--  Scheduling info starts here  -->
+			<div layout="row">
+				<md-card ng-show=vm.showInputFeed> <md-card-content> <!-- <md-card-header layout-align="left"> <span class="md-title">Input Feed Schedule</span> </md-card-header> -->
+				<div layout="row" layout-align="left">
+					Start Time:
+					<md-input-container class="md-block"> <label>Hrs.</label> <input type="text" id="startTimeHrs" name="startTime"
+						ng-model="vm.inputschedule.scheduleDetails.startTime_in_Hr" required> </md-input-container>
+					<md-input-container> <label>Min</label> <input type="text" id="startTimeMins" name="startTimeMins."
+						ng-model="vm.inputschedule.scheduleDetails.startTime_in_Min" required> </md-input-container>
+				</div>
+				<div layout="row" layout-align="left">Recurrence:</div>
+				<br>
+				<div layout="row">
+					<md-radio-group ng-model="vm.inputschedule.scheduleDetails.recurrenceType.freqType" ng-init="data.default = 'hourly'">
+					<div layout="row">
+						<md-radio-button value="hourly" ng-click="vm.showHoulry=true;vm.showDaily=false;vm.showWeekly=false;vm.showMonthly=false">Hourly
+						</md-radio-button>
+						<div layout="row">
+							<md-input-container class="md-block"> <label>Every</label> <input type="text" id="recurrenceHourly"
+								name="recurrenceHourly" ng-model="vm.inputschedule.scheduleDetails.recurrenceType.hourly.everyHr" required> </md-input-container>
+							<label>Hrs.</label>
+						</div>
+					</div>
+					<div layout="row">
+						<md-radio-button value="daily" ng-click="vm.showHoulry=false;vm.showDaily=true;vm.showWeekly=false;vm.showMonthly=false">Daily</md-radio-button>
+						<div layout="row" layout-align="left" ng-show=vm.showDaily>
+							<md-radio-group class="md-primary" ng-model="vm.inputschedule.scheduleDetails.recurrenceType.daily.daily"> <md-radio-button value="daily">Daily</md-radio-button>
+							</md-radio-group>
+						</div>
+					</div>
+					<div layout="row">
+						<md-radio-button value="weekly" ng-click="vm.showHoulry=false;vm.showDaily=false;vm.showWeekly=true;vm.showMonthly=false">Weekly</md-radio-button>
+						<div layout="row" layout-align="left" ng-show=vm.showWeekly>
+							<md-checkbox class="md-primary" ng-model="vm.inputschedule.scheduleDetails.recurrenceType.weekly.sun" aria-label="Primary Checkbox"> Sun </md-checkbox>
+							<md-checkbox class="md-primary" ng-model="vm.inputschedule.scheduleDetails.recurrenceType.weekly.mon" aria-label="Primary Checkbox"> Mon </md-checkbox>
+							<md-checkbox class="md-primary" ng-model="vm.inputschedule.scheduleDetails.recurrenceType.weekly.tue" aria-label="Primary Checkbox"> Tue </md-checkbox>
+							<md-checkbox class="md-primary" ng-model="vm.inputschedule.scheduleDetails.recurrenceType.weekly.wed" aria-label="Primary Checkbox"> Wed </md-checkbox>
+							<md-checkbox class="md-primary" ng-model="vm.inputschedule.scheduleDetails.recurrenceType.weekly.fri" aria-label="Primary Checkbox"> Fri</md-checkbox>
+							<md-checkbox class="md-primary" ng-model="vm.inputschedule.scheduleDetails.recurrenceType.weekly.sat" aria-label="Primary Checkbox"> Sat</md-checkbox>
+						</div>
+					</div>
+					<div layout="row">
+						<md-radio-button value="monthly" ng-click="vm.showHoulry=false;vm.showDaily=false;vm.showWeekly=false;vm.showMonthly=true">Monthly</md-radio-button>
+						<md-radio-group class="md-primary" ng-model="vm.inputschedule.scheduleDetails.recurrenceType.monthly.monthlyFreType" ng-show=vm.showMonthly>
+						<div layout="row">
+							<md-radio-button value="day" ng-click="vm.day=true;vm.theDay=false">Day</md-radio-button>
+							<md-input-container class="md-block" ng-show=vm.day> <label>of Day</label> <input type="text" id="recurrenceDayOf"
+								name="recurrenceDayOf" ng-model="vm.inputschedule.scheduleDetails.recurrenceType.monthly.day" required> </md-input-container>
+							<md-input-container class="md-block" ng-show=vm.day> <label>Every</label> <input type="text" id="recurrenceMonthOf"
+								name="recurrenceMonthOf" ng-model="vm.inputschedule.scheduleDetails.recurrenceType.monthly.week" required> </md-input-container>
+						</div>
+						<div layout="row">
+							<md-input-container class="md-block"> <md-radio-button value="theDay" ng-click="vm.day=false;vm.theDay=true">The</md-radio-button>
+							</md-input-container>
+							<md-input-container class="md-block" ng-show=vm.theDay> <md-select placeholder=""
+								ng-model="vm.inputschedule.scheduleDetails.recurrenceType.monthly.the" ng-show=vm.theDay required> <md-option value="first">First</md-option> <md-option
+								value="second">Second</md-option> <md-option value="third">Third</md-option> <md-option value="fourth">Fourth</md-option> </md-select> </md-input-container>
+							<md-input-container class="md-block" ng-show=vm.theDay> <md-select placeholder=""
+								ng-model="vm.inputschedule.scheduleDetails.recurrenceType.monthly.day" required> <md-option value="monday">Monday</md-option> <md-option
+								value="tuesday">Tuesday</md-option> <md-option value="wednesday">Wednesday</md-option> <md-option value="thursday">Thursday</md-option> <md-option
+								value="friday">Friday</md-option> <md-option value="saturday">Saturday</md-option> </md-select> </md-input-container>
+							<div ng-show=vm.theDay>Of Every</div>
+							<md-input-container class="md-block" ng-show=vm.theDay> <label>Months</label> <input type="text" id="recurrenceMonthFreq"
+								name="recurrenceMonthFreq" ng-model="vm.inputschedule.scheduleDetails.recurrenceType.monthly.month" required> </md-input-container>
+							<div ng-show=vm.theDay>Month(s)</div>
+						</div>
+						</md-radio-group>
+					</div>
+					</md-radio-group>
+				</div>
+				</md-card-content> <md-card-actions layout="row" layout-align="center"> <md-button id="saveInputFeed" ng-click="vm.saveInputFeed();vm.showInputFeed=false"
+					class="md-primary" aria-label="{{Save | triTranslate}}" translate="Save"> Save </md-button> <md-button id="cancel"
+					ng-click="vm.clickCancel();vm.showInputFeed=false" aria-label="{{'Cancel' | triTranslate}}" translate="Cancel">Cancel</md-button> </md-card-actions> </md-card>
+			</div>
+			<!--  Scheduling info Ends here  --> <md-card-header layout-align="left"> <span class="md-title">Bank Feed Schedule</span> </md-card-header>
+			<div layout="row" flex=100>
+				<md-input-container class="md-block" flex=100> <label>Immediate</label> <input type="text" id="bankFeedSchedule"
+					name="bankFeedSchedule" ng-model="vm.bankFeedSchedule" ng-disabled=true> </md-input-container>
+				<md-button class="md-icon-button" ng-click="vm.showBankFeed=true" id="ipBankFeed"> <md-icon
+					md-font-icon="zmdi zmdi-edit"></md-icon> </md-button>
+			</div>
+			<div layout="row">
+				<!--  Scheduling info starts here  -->
+				<md-card ng-show="vm.showBankFeed"> <md-card-content> <!-- <md-card-header layout-align="left"> <span class="md-title">Bank Feed Schedule</span> </md-card-header> -->
+				<div layout="row" layout-align="left">
+					Start Time:
+					<md-input-container class="md-block"> <label>Hrs.</label> <input type="text" id="bstartTimeHrs" name="startTime"
+						ng-model="vm.bankschedule.scheduleDetails.startTime_in_Hr" required> </md-input-container>
+					<md-input-container> <label>Min</label> <input type="text" id="bstartTimeMins" name="startTimeMins."
+						ng-model="vm.bankschedule.scheduleDetails.startTime_in_Min" required> </md-input-container>
+				</div>
+				<div layout="row" layout-align="left">Recurrence:</div>
+				<br>
+				<div layout="row">
+					<md-radio-group ng-model="vm.bankschedule.scheduleDetails.recurrenceType.freqType" ng-init="data.default = 'hourly'">
+					<div layout="row">
+						<md-radio-button value="hourly" ng-click="vm.showHoulry=true;vm.showDaily=false;vm.showWeekly=false;vm.showMonthly=false">Hourly
+						</md-radio-button>
+						<div layout="row">
+							<md-input-container class="md-block"> <label>Every</label> <input type="text" id="brecurrenceHourly"
+								name="recurrenceHourly" ng-model="vm.bankschedule.scheduleDetails.recurrenceType.hourly.everyHr" required> </md-input-container>
+							<label>Hrs.</label>
+						</div>
+					</div>
+					<div layout="row">
+						<md-radio-button value="daily" ng-click="vm.showHoulry=false;vm.showDaily=true;vm.showWeekly=false;vm.showMonthly=false">Daily</md-radio-button>
+						<div layout="row" layout-align="left" ng-show=vm.showDaily>
+							<md-radio-group class="md-primary" ng-model="vm.bankschedule.scheduleDetails.recurrenceType.daily.daily"> <md-radio-button value="daily">Daily</md-radio-button>
+							</md-radio-group>
+						</div>
+					</div>
+					<div layout="row">
+						<md-radio-button value="weekly" ng-click="vm.showHoulry=false;vm.showDaily=false;vm.showWeekly=true;vm.showMonthly=false">Weekly</md-radio-button>
+						<div layout="row" layout-align="left" ng-show=vm.showWeekly>
+							<md-checkbox class="md-primary" ng-model="vm.bankschedule.scheduleDetails.recurrenceType.weekly.sun" aria-label="Primary Checkbox"> Sun </md-checkbox>
+							<md-checkbox class="md-primary" ng-model="vm.bankschedule.scheduleDetails.recurrenceType.weekly.mon" aria-label="Primary Checkbox"> Mon </md-checkbox>
+							<md-checkbox class="md-primary" ng-model="vm.bankschedule.scheduleDetails.recurrenceType.weekly.tue" aria-label="Primary Checkbox"> Tue </md-checkbox>
+							<md-checkbox class="md-primary" ng-model="vm.bankschedule.scheduleDetails.recurrenceType.weekly.wed" aria-label="Primary Checkbox"> Wed </md-checkbox>
+							<md-checkbox class="md-primary" ng-model="vm.bankschedule.scheduleDetails.recurrenceType.weekly.fri" aria-label="Primary Checkbox"> Fri</md-checkbox>
+							<md-checkbox class="md-primary" ng-model="vm.bankschedule.scheduleDetails.recurrenceType.weekly.sat" aria-label="Primary Checkbox"> Sat</md-checkbox>
+						</div>
+					</div>
+					<div layout="row">
+						<md-radio-button value="monthly" ng-click="vm.showHoulry=false;vm.showDaily=false;vm.showWeekly=false;vm.showMonthly=true">Monthly</md-radio-button>
+						<md-radio-group class="md-primary" ng-model="vm.bankschedule.scheduleDetails.recurrenceType.monthly.monthlyFreType" ng-show=vm.showMonthly>
+						<div layout="row">
+							<md-radio-button value="day" ng-click="vm.day=true;vm.theDay=false">Day</md-radio-button>
+							<md-input-container class="md-block" ng-show=vm.day> <label>of Day</label> <input type="text" id="recurrenceDayOf"
+								name="recurrenceDayOf" ng-model="vm.bankschedule.scheduleDetails.recurrenceType.monthly.day" required> </md-input-container>
+							<md-input-container class="md-block" ng-show=vm.day> <label>Every</label> <input type="text" id="recurrenceMonthOf"
+								name="recurrenceMonthOf" ng-model="vm.bankschedule.scheduleDetails.recurrenceType.monthly.week" required> </md-input-container>
+						</div>
+						<div layout="row">
+							<md-input-container class="md-block"> <md-radio-button value="theDay" ng-click="vm.day=false;vm.theDay=true">The</md-radio-button>
+							</md-input-container>
+							<md-input-container class="md-block" ng-show=vm.theDay> <md-select placeholder=""
+								ng-model="vm.bankschedule.scheduleDetails.recurrenceType.monthly.the" ng-show=vm.theDay required> <md-option value="first">First</md-option> <md-option
+								value="second">Second</md-option> <md-option value="third">Third</md-option> <md-option value="fourth">Fourth</md-option> </md-select> </md-input-container>
+							<md-input-container class="md-block" ng-show=vm.theDay> <md-select placeholder=""
+								ng-model="vm.bankschedule.scheduleDetails.recurrenceType.monthly.day" required> <md-option value="monday">Monday</md-option> <md-option
+								value="tuesday">Tuesday</md-option> <md-option value="wednesday">Wednesday</md-option> <md-option value="thursday">Thursday</md-option> <md-option
+								value="friday">Friday</md-option> <md-option value="saturday">Saturday</md-option> </md-select> </md-input-container>
+							<div ng-show=vm.theDay>Of Every</div>
+							<md-input-container class="md-block" ng-show=vm.theDay> <label>Months</label> <input type="text" id="recurrenceMonthFreq"
+								name="recurrenceMonthFreq" ng-model="vm.bankschedule.scheduleDetails.recurrenceType.monthly.month" required> </md-input-container>
+							<div ng-show=vm.theDay>Month(s)</div>
+						</div>
+						</md-radio-group>
+					</div>
+					</md-radio-group>
+				</div>
+				</md-card-content> <md-card-actions layout="row" layout-align="center"> <md-button id="saveBankFeed" ng-click="vm.saveBankFeed();vm.showBankFeed=false;"
+					class="md-primary" aria-label="{{Save | triTranslate}}" translate="Save"> Save </md-button> <md-button id="cancel"
+					ng-click="vm.clickCancel();vm.showBankFeed=false;" aria-label="{{'Cancel' | triTranslate}}" translate="Cancel">Cancel</md-button> </md-card-actions> </md-card>
+				<!--  Scheduling info Ends here  -->
+			</div>
+			</div>
+			</md-card>
+			<md-card> <md-card-content> <md-card-header layout-align="left"> <span class="md-title">Schedule Status</span> </md-card-header>
+			
+			<div layout="row" layout-align="left">
+				<md-input-container class="md-block">
+				<md-switch class="md-primary"
+					ng-model="vm.jobstatus" aria-label="Primary Switch"
+					ng-init="switches.primary = true" ng-change="vm.changeJobStatus();">
+				Enable </md-switch>
+			<!-- 	<md-checkbox class="md-primary" ng-model="vm.jobstatus" aria-label="Primary Checkbox"
+					ng-change="vm.changeJobStatus();">  </md-checkbox> --> 
+					
+					</md-input-container>
+			</div>
+			</md-card-content> <!-- <md-card-actions layout="row" layout-align="center">
+					<md-button id="save" ng-click="vm.changeJobStatus();" class="md-primary" aria-label="{{Save | triTranslate}}" translate="Save"> Save </md-button> 
+					
+
+		</md-card-actions> --> </md-card>
+	</div>
+	</form>
+	</md-card>
+</div>
+</div>

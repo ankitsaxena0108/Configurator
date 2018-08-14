@@ -1,0 +1,24 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="Nrusingh" id="changeLog-9002">
+        <createTable tableName="USR_USER_ROLE">
+            <column name="ROLE_ID" type="java.sql.Types.BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USER_ID" type="java.sql.Types.BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    
+    <changeSet author="Nrusingh" id="changeLog-9002.1">
+    		<insert tableName="USR_USER_ROLE">
+            <column name="ROLE_ID" value="-1"/>
+            <column name="USER_ID" value="1"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

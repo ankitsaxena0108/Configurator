@@ -1,0 +1,74 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+	<changeSet author="Nrusingh" id="changelog-1007">
+		<createTable tableName="COR_ERROR_MESSAGE">
+			<column name="ERROR_CODE" type="java.sql.Types.VARCHAR(256))">
+				<constraints nullable="false" />
+			</column>
+			<column name="LOCALE_ID" type="java.sql.Types.BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="ERROR_MESSAGE" type="java.sql.Types.VARCHAR(1024))">
+				<constraints nullable="false" />
+			</column>
+			<column name="MODULE" type="java.sql.Types.VARCHAR(50))">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="Nrusingh" id="changelog-1007.1">
+		<insert tableName="COR_ERROR_MESSAGE">
+			<column name="ERROR_CODE" value="1000" />
+			<column name="LOCALE_ID" value="1" />
+			<column name="ERROR_MESSAGE" value="Server side error, Contact Administrator" />
+			<column name="MODULE" value="CORE" />
+		</insert>
+		<insert tableName="COR_ERROR_MESSAGE">
+			<column name="ERROR_CODE" value="1001" />
+			<column name="LOCALE_ID" value="1" />
+			<column name="ERROR_MESSAGE" value="Validation errors: {0}" />
+			<column name="MODULE" value="CORE" />
+		</insert>
+		<insert tableName="COR_ERROR_MESSAGE">
+			<column name="ERROR_CODE" value="1002" />
+			<column name="LOCALE_ID" value="1" />
+			<column name="ERROR_MESSAGE" value="Error Uploading Bank Template." />
+			<column name="MODULE" value="CORE" />
+		</insert>
+		<insert tableName="COR_ERROR_MESSAGE">
+			<column name="ERROR_CODE" value="1003" />
+			<column name="LOCALE_ID" value="1" />
+			<column name="ERROR_MESSAGE" value="Error Reading Template." />
+			<column name="MODULE" value="CORE" />
+		</insert>
+	</changeSet>
+
+
+	<changeSet author="Nrusingh" id="changelog-1007.2">
+		<insert tableName="COR_ERROR_MESSAGE">
+			<column name="ERROR_CODE" value="9000" />
+			<column name="LOCALE_ID" value="1" />
+			<column name="ERROR_MESSAGE" value="Role exists" />
+			<column name="MODULE" value="USER" />
+		</insert>
+
+		<insert tableName="COR_ERROR_MESSAGE">
+			<column name="ERROR_CODE" value="9001" />
+			<column name="LOCALE_ID" value="1" />
+			<column name="ERROR_MESSAGE" value="User with login {0} exists" />
+			<column name="MODULE" value="USER" />
+		</insert>
+
+		<insert tableName="COR_ERROR_MESSAGE">
+			<column name="ERROR_CODE" value="9002" />
+			<column name="LOCALE_ID" value="1" />
+			<column name="ERROR_MESSAGE" value="User linked with {0}" />
+			<column name="MODULE" value="USER" />
+		</insert>
+	</changeSet>
+
+</databaseChangeLog>

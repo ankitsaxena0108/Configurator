@@ -1,0 +1,15 @@
+**/.settings/**
+**/target/**
+**/bin/**
+**/.classpath
+**/.project
+.idea
+**/*.iml
+core/src/main/liquibase/liquibase-all.properties
+.DS_Store
+**/.DS_Store
+**/.tmp/**
+**/.metadata/**
+**/web/web-src/node_modules/**
+**/web/web-src/bower_components/**
+**/web/web-src/.tmp/**

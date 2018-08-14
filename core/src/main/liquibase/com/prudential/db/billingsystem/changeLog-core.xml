@@ -1,0 +1,26 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+	<include
+		file="src/main/liquibase/com/prudential/db/billingsystem/core/changeLog-1001-COR_AUTO_NUMBER.xml" />
+	<include
+		file="src/main/liquibase/com/prudential/db/billingsystem/core/changeLog-1002-COR_ROLE.xml" />
+	<include
+		file="src/main/liquibase/com/prudential/db/billingsystem/core/changeLog-1003-COR_PERMISSION.xml" />
+	<include
+		file="src/main/liquibase/com/prudential/db/billingsystem/core/changeLog-1004-COR_LOCALE.xml" />
+	<include
+		file="src/main/liquibase/com/prudential/db/billingsystem/core/changeLog-1005-COR_LOCALIZED_VALUE.xml" />
+	<include
+		file="src/main/liquibase/com/prudential/db/billingsystem/core/changeLog-1006-CODE_LIST.xml" />
+	<include
+		file="src/main/liquibase/com/prudential/db/billingsystem/core/changeLog-1007-COR_ERROR_MESSAGE.xml" />
+	<include
+		file="src/main/liquibase/com/prudential/db/billingsystem/core/changeLog-1008-FILE_AUDIT.xml" />
+	<include
+		file="src/main/liquibase/com/prudential/db/billingsystem/core/changeLog-1011-CBICONFIG.xml" />
+	<include
+		file="src/main/liquibase/com/prudential/db/billingsystem/core/changeLog-1012-BANKTXNRECORD.xml" />
+</databaseChangeLog>

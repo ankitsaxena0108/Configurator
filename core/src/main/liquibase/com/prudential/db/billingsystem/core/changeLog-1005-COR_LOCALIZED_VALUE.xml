@@ -1,0 +1,72 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="Nrusingh" id="changelog-1005">
+        <createTable tableName="COR_LOCALIZED_VALUE">
+            <column name="LOCALIZED_VALUE_ID" type="java.sql.Types.VARCHAR(200))">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="LOCALIZED_ENTITY_ID" type="java.sql.Types.BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LOCALE_ID" type="java.sql.Types.BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="FIELD" type="java.sql.Types.VARCHAR(200))">
+                <constraints nullable="false"/>
+            </column>
+            <column name="VALUE" type="java.sql.Types.VARCHAR(200))">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LOCALIZED_VALUE" type="java.sql.Types.VARCHAR(200))">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LAST_MODIFIED" type="java.sql.Types.TIMESTAMP"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Nrusingh" id="changelog-1005.1">
+        <insert tableName="COR_LOCALIZED_VALUE">
+            <column name="LOCALIZED_VALUE_ID" type="java.sql.Types.BIGINT" value="1"/>
+            <column name="LOCALIZED_ENTITY_ID" type="java.sql.Types.BIGINT" value="1"/>
+            <column name="LOCALE_ID" type="java.sql.Types.BIGINT" value="1"/>
+            <column name="FIELD" type="java.sql.Types.VARCHAR(200))" value="status"/>
+            <column name="VALUE" type="java.sql.Types.VARCHAR(200))" value="ACT"/>
+            <column name="LOCALIZED_VALUE" type="java.sql.Types.VARCHAR(200))" value="ActiveUS"/>
+            <column name="LAST_MODIFIED" type="java.sql.Types.TIMESTAMP" valueDate="CURRENT_TIMESTAMP"/>
+        </insert>
+
+        <insert tableName="COR_LOCALIZED_VALUE">
+            <column name="LOCALIZED_VALUE_ID" type="java.sql.Types.BIGINT" value="2"/>
+            <column name="LOCALIZED_ENTITY_ID" type="java.sql.Types.BIGINT" value="1"/>
+            <column name="LOCALE_ID" type="java.sql.Types.BIGINT" value="2"/>
+            <column name="FIELD" type="java.sql.Types.VARCHAR(200))" value="status"/>
+            <column name="VALUE" type="java.sql.Types.VARCHAR(200))" value="ACT"/>
+            <column name="LOCALIZED_VALUE" type="java.sql.Types.VARCHAR(200))" value="ActiveGB"/>
+            <column name="LAST_MODIFIED" type="java.sql.Types.TIMESTAMP" valueDate="CURRENT_TIMESTAMP"/>
+        </insert>
+
+        <insert tableName="COR_LOCALIZED_VALUE">
+            <column name="LOCALIZED_VALUE_ID" type="java.sql.Types.BIGINT" value="3"/>
+            <column name="LOCALIZED_ENTITY_ID" type="java.sql.Types.BIGINT" value="2"/>
+            <column name="LOCALE_ID" type="java.sql.Types.BIGINT" value="1"/>
+            <column name="FIELD" type="java.sql.Types.VARCHAR(200))" value="status"/>
+            <column name="VALUE" type="java.sql.Types.VARCHAR(200))" value="BLK"/>
+            <column name="LOCALIZED_VALUE" type="java.sql.Types.VARCHAR(200))" value="BlockedUS"/>
+            <column name="LAST_MODIFIED" type="java.sql.Types.TIMESTAMP" valueDate="CURRENT_TIMESTAMP"/>
+        </insert>
+
+        <insert tableName="COR_LOCALIZED_VALUE">
+            <column name="LOCALIZED_VALUE_ID" type="java.sql.Types.BIGINT" value="4"/>
+            <column name="LOCALIZED_ENTITY_ID" type="java.sql.Types.BIGINT" value="2"/>
+            <column name="LOCALE_ID" type="java.sql.Types.BIGINT" value="2"/>
+            <column name="FIELD" type="java.sql.Types.VARCHAR(200))" value="status"/>
+            <column name="VALUE" type="java.sql.Types.VARCHAR(200))" value="BLK"/>
+            <column name="LOCALIZED_VALUE" type="java.sql.Types.VARCHAR(200))" value="BlockedGB"/>
+            <column name="LAST_MODIFIED" type="java.sql.Types.TIMESTAMP" valueDate="CURRENT_TIMESTAMP"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

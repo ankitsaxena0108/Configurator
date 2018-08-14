@@ -1,0 +1,44 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+	<changeSet author="Nrusingh" id="changelog-1006">
+		<createTable tableName="COR_LOCALIZEDCODE">
+			<column name="ID" type="java.sql.Types.BIGINT">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="CODE" type="java.sql.Types.VARCHAR(100))">
+				<constraints nullable="false" />
+			</column>
+			<column name="LAST_MODIFIED" type="java.sql.Types.TIMESTAMP" />
+		</createTable>
+
+		<createTable tableName="COR_LOCALIZEDCODELIST">
+			<column name="ID" type="java.sql.Types.BIGINT">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="CODEVALUE" type="java.sql.Types.VARCHAR(100))">
+				<constraints nullable="false" />
+			</column>
+			<column name="CODEDESCRIPTION" type="java.sql.Types.VARCHAR(100))">
+				<constraints nullable="false" />
+			</column>
+
+	 		<column name="LOCALE_ID" type="java.sql.Types.BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            
+            <column name="LOCALIZEDCODE_ID" type="java.sql.Types.BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            
+            
+			<column name="LAST_MODIFIED" type="java.sql.Types.TIMESTAMP" />
+		</createTable>
+
+
+
+	</changeSet>
+
+</databaseChangeLog>

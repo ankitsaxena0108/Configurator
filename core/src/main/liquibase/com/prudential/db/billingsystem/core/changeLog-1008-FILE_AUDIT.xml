@@ -1,0 +1,48 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+	<changeSet author="Shailesh" id="changelog-1008">
+		<createTable tableName="FILE_AUDIT">
+			<column name="ID" type="java.sql.Types.BIGINT">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="SYSTEMID" type="java.sql.Types.VARCHAR(100))">
+				<constraints nullable="false" />
+			</column>
+			<column name="FILECATEGORY" type="java.sql.Types.VARCHAR(30))" />
+			<column name="FILEDIRECTION" type="java.sql.Types.VARCHAR(20))" />
+			<column name="FILESTATUS" type="java.sql.Types.VARCHAR(50))" />
+			<column name="FILENAME" type="java.sql.Types.VARCHAR(200))" />
+			<column name="PAYMENTTYPE" type="java.sql.Types.VARCHAR(50))" />
+			<column name="STARTDATETIME" type="java.sql.Types.TIMESTAMP" />
+			<column name="ENDDATETIME" type="java.sql.Types.TIMESTAMP" />
+			<column name="TOTALAMOUNT" type="java.math.BigDecimal(24,6)" />
+			<column name="APPROVEDTXN" type="java.sql.Types.BIGINT" />
+			<column name="APPROVEDAMOUNT" type="java.math.BigDecimal(24,6)" />
+			<column name="REJECTEDTXN" type="java.sql.Types.BIGINT" />
+			<column name="REJECTEDAMOUNT" type="java.math.BigDecimal(24,6)" />
+			<column name="LAST_MODIFIED" type="java.sql.Types.TIMESTAMP" />
+		</createTable>
+	</changeSet>
+
+	<changeSet author="Shailesh" id="changelog-1008.1">
+		<createTable tableName="FILE_AUDIT_DTL">
+			<column name="ID" type="java.sql.Types.BIGINT">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="AUDIT_ID" type="java.sql.Types.BIGINT">
+			</column>
+			<column name="ROWNUMBER" type="java.sql.Types.BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="FAILURECODE" type="java.sql.Types.VARCHAR(100))">
+			</column>
+			<column name="LAST_MODIFIED" type="java.sql.Types.TIMESTAMP" />
+		</createTable>
+	</changeSet>
+	
+	
+
+</databaseChangeLog>

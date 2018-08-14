@@ -1,0 +1,32 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+	<changeSet author="Nrusingh" id="changelog-1002">
+		<createTable tableName="COR_ROLE">
+			<column name="ID" type="java.sql.Types.BIGINT">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="ROLE_NAME" type="java.sql.Types.VARCHAR(200))">
+				<constraints nullable="false" />
+			</column>
+			<column name="LAST_MODIFIED" type="java.sql.Types.TIMESTAMP" />
+		</createTable>
+	</changeSet>
+
+	<changeSet author="Nrusingh" id="changelog-1002.1">
+		<createTable tableName="COR_ROLE_PERMISSION">
+			<column name="ROLE_ID" type="java.sql.Types.BIGINT" >
+			<constraints nullable="false" />
+			</column>
+			<column name="PERMISSION_ID" type="java.sql.Types.BIGINT" >
+			<constraints nullable="false" />
+			</column>
+		</createTable>
+
+		<addUniqueConstraint columnNames="ROLE_ID, PERMISSION_ID"
+			constraintName="CORE_ROLE_PERM_UN" tableName="COR_ROLE_PERMISSION" />
+	</changeSet>
+
+</databaseChangeLog>

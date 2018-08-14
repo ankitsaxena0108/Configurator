@@ -1,0 +1,41 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+	<changeSet author="Nrusingh" id="changelog-9001">
+		<createTable tableName="USR_USER">
+			<column name="ID" type="java.sql.Types.BIGINT">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="LOGIN" type="java.sql.Types.VARCHAR(200))">
+				<constraints unique="true" nullable="false" />
+			</column>
+			<column name="NAME" type="java.sql.Types.VARCHAR(500)">
+				<constraints nullable="false" />
+			</column>
+			<column name="STATUS" type="java.sql.Types.VARCHAR(50)">
+				<constraints nullable="false" />
+			</column>
+			<column name="ORG_ID" type="java.sql.Types.BIGINT" />
+			<column name="LOCALE_ID" type="java.sql.Types.BIGINT" >
+				<constraints nullable="false" />
+			</column>
+			<column name="LAST_MODIFIED" type="java.sql.Types.TIMESTAMP" />
+		</createTable>
+	</changeSet>
+
+
+	<changeSet author="Nrusingh" id="changelog-9001.1">
+		<insert tableName="USR_USER">
+			<column name="ID" value="1" />
+			<column name="LOGIN" value="superit" />
+			<column name="NAME" value="superit" />
+			<column name="STATUS" value="ACTIVE" />
+			<column name="ORG_ID" value="-1" />
+			<column name="LOCALE_ID" value="1" />
+			<column name="LAST_MODIFIED" valueDate="CURRENT_TIMESTAMP" />
+		</insert>
+	</changeSet>
+
+</databaseChangeLog>

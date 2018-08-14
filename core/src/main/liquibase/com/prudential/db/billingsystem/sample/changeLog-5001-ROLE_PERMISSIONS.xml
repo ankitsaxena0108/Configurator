@@ -1,0 +1,118 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+	 <changeSet author="Nrusingh" id="changeLog-5001.1">
+		<insert tableName="COR_ROLE">
+			<column name="ID" type="java.sql.Types.BIGINT" value="-1" />
+			<column name="ROLE_NAME" type="java.sql.Types.VARCHAR(200))"
+				value="BILL_ADMIN" />
+			<column name="LAST_MODIFIED" type="java.sql.Types.TIMESTAMP"
+				valueDate="CURRENT_TIMESTAMP" />
+		</insert>
+	</changeSet>
+		 <changeSet author="Nrusingh" id="changeLog-5001.2">
+		<insert tableName="COR_ROLE">
+			<column name="ID" type="java.sql.Types.BIGINT" value="1" />
+			<column name="ROLE_NAME" type="java.sql.Types.VARCHAR(200))"
+				value="BILL_USER" />
+			<column name="LAST_MODIFIED" type="java.sql.Types.TIMESTAMP"
+				valueDate="CURRENT_TIMESTAMP" />
+		</insert>
+	</changeSet>
+	<!-- CORE System Permissions -->
+
+	<changeSet author="Nrusingh" id="changelog-5001.3">
+		<insert tableName="COR_PERMISSION">
+			<column name="ID" type="java.sql.Types.BIGINT" value="1" />
+			<column name="PERMISSION_NAME" type="java.sql.Types.VARCHAR(200))"
+				value="PERM_DASHBOARD" />
+			<column name="LAST_MODIFIED" type="java.sql.Types.TIMESTAMP"
+				valueDate="CURRENT_TIMESTAMP" />
+		</insert>
+
+		<insert tableName="COR_PERMISSION">
+			<column name="ID" type="java.sql.Types.BIGINT" value="2" />
+			<column name="PERMISSION_NAME" type="java.sql.Types.VARCHAR(200))"
+				value="PERM_AUDIT_ENQUIRY" />
+			<column name="LAST_MODIFIED" type="java.sql.Types.TIMESTAMP"
+				valueDate="CURRENT_TIMESTAMP" />
+		</insert>
+		
+	</changeSet>
+	
+	
+	<!-- Role Mapping for BILL_ADMIN -->
+ <changeSet author="Nrusingh" id="changelog-5001.4">
+		<insert tableName="COR_ROLE_PERMISSION">
+			<column name="ROLE_ID" value="-1" />
+			<column name="PERMISSION_ID" value="1" />
+		</insert>
+
+		<insert tableName="COR_ROLE_PERMISSION">
+			<column name="ROLE_ID" value="-1" />
+			<column name="PERMISSION_ID" value="2" />
+		</insert>
+		
+	</changeSet> 
+
+
+
+	<!-- Role Mapping for BILL_USER -->
+
+	<changeSet author="Nrusingh" id="changelog-5001.5">
+		<insert tableName="COR_ROLE_PERMISSION">
+			<column name="ROLE_ID" value="1" />
+			<column name="PERMISSION_ID" value="2" />
+		</insert>
+
+	</changeSet>
+	
+	
+	<!--  added for Recon and Reject report -->
+	
+	<changeSet author="Rajiv Shahi" id="changelog-5001.6">
+	
+		<insert tableName="COR_PERMISSION">
+			<column name="ID" type="java.sql.Types.BIGINT" value="3" />
+			<column name="PERMISSION_NAME" type="java.sql.Types.VARCHAR(200))"
+				value="PERM_RECON_REPORT" />
+			<column name="LAST_MODIFIED" type="java.sql.Types.TIMESTAMP"
+				valueDate="CURRENT_TIMESTAMP" />
+		</insert>
+		
+		<insert tableName="COR_PERMISSION">
+			<column name="ID" type="java.sql.Types.BIGINT" value="4" />
+			<column name="PERMISSION_NAME" type="java.sql.Types.VARCHAR(200))"
+				value="PERM_REJECT_REPORT" />
+			<column name="LAST_MODIFIED" type="java.sql.Types.TIMESTAMP"
+				valueDate="CURRENT_TIMESTAMP" />
+		</insert>	
+		
+		
+		<insert tableName="COR_ROLE_PERMISSION">
+			<column name="ROLE_ID" value="-1" />
+			<column name="PERMISSION_ID" value="3" />
+		</insert>
+		
+		<insert tableName="COR_ROLE_PERMISSION">
+			<column name="ROLE_ID" value="-1" />
+			<column name="PERMISSION_ID" value="4" />
+		</insert>
+		
+		<insert tableName="COR_ROLE_PERMISSION">
+			<column name="ROLE_ID" value="1" />
+			<column name="PERMISSION_ID" value="3" />
+		</insert>
+		
+		<insert tableName="COR_ROLE_PERMISSION">
+			<column name="ROLE_ID" value="1" />
+			<column name="PERMISSION_ID" value="4" />
+		</insert>
+	
+	</changeSet>
+	
+
+</databaseChangeLog>
+

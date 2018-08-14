@@ -1,0 +1,35 @@
+<md-dialog class="commission-dialog mobile-fullwidth-dialog" flex="60" flex-xs="100"> 
+<md-toolbar class="toolbar-default">
+<div class="md-toolbar-tools">
+	<h2 flex>
+		<span>{{vm.pageTitle}}</span>
+	</h2>
+	<md-button class="md-icon-button" ng-click="vm.clickCancel()" aria-label="cancel"> <md-icon md-font-icon="zmdi zmdi-close"></md-icon> </md-button>
+</div>
+</md-toolbar> 
+<md-dialog-content class="md-dialog-content">  
+<md-card flex	class="tri-wizard-card md-whiteframe-z1 margin-bottom-100" tri-wizard> 
+<md-card-content> 
+<md-card-header layout-align="left"> </md-card-header> 
+<md-table-container>
+<table md-table class="md-data-table">
+	<thead md-head>
+		<tr md-row class="myheader" ; color:white;">
+			<th md-column style="border: 1px solid grey; text-align: center">Row Number</th>
+			<th md-column style="border: 1px solid grey; text-align: center">Failure Code</th>
+		</tr>
+	</thead>
+	<tbody md-body>
+		<tr md-row ng-repeat="detail in vm.fileAuditDetails">
+			<td md-cell style="border: 1px solid grey; text-align: center">{{detail.rowNumber}}</td>
+			<td md-cell style="border: 1px solid grey; text-align: center">{{detail.failureCode}}</td>
+		</tr>
+	</tbody>
+</table>
+</md-table-container> 
+</md-card-content> 
+<md-card-actions layout="row" layout-align="end center"> <md-button ng-click="vm.clickCancel()"
+	aria-label="{{'Cancel' | triTranslate}}" translate="Cancel"></md-button> </md-card-actions> 
+	</md-card> 
+	</md-dialog-content> 
+	</md-dialog>

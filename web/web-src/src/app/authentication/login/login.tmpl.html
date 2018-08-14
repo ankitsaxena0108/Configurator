@@ -1,0 +1,40 @@
+<md-card >
+    <md-toolbar class="padding-20 text-center">
+        <img ng-src="{{::vm.triSettings.logo}}" alt="{{vm.triSettings.name}}">
+        <!-- <h1 class="md-headline" translate>Login</h1>  -->
+    </md-toolbar>
+
+    <md-content class="md-padding">
+        <form name="login">
+            <md-input-container class="md-block">
+                <label for="username" translate>username</label>
+                <input id="username" label="username" name="username" type="text" ng-model="vm.user.username" required/>
+                <div ng-messages="login.username.$error" md-auto-hide="false" ng-show="login.username.$touched">
+                    <div ng-message when="required"><span translate>Please enter username.</span></div>
+                    <div ng-message when="username"><span translate>Username is invalid.</span></div>
+                </div>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label for="password" translate>password</label>
+                <input  id="password" label="password" name="password" type="password" ng-model="vm.user.password" required/>
+                <div ng-messages for="login.password.$error" md-auto-hide="false" ng-show="login.password.$touched">
+                    <div ng-message when="required"><span translate>Please enter your password.</span></div>
+                </div>
+            </md-input-container>
+
+            <div layout="row" layout-align="space-between center">
+            </div>
+
+            <div ng-messages="vm.error" for="submit" ng-show="vm.error">
+                <div ng-message="valid" style="color: red; font-size: small"><span translate>Invalid credentials, please try again</span></div>
+            </div>
+
+            <md-button class="md-raised md-primary full-width margin-left-0 margin-right-0 margin-top-10 margin-bottom-10"
+                       name="submit" ng-click="vm.loginClick()" ng-disabled="login.$invalid" translate="Log in" aria-label="{{'Log in' | triTranslate}}"></md-button>
+
+
+            <md-highlight-text class="md-primary full-width margin-left-0 margin-right-0 margin-top-10 margin-bottom-10" translate="Welcome to Billing System!" aria-label="{{'Welcome to Billing System!' | triTranslate}}"></md-highlight-text>
+
+        </form>
+    </md-content>
+</md-card>

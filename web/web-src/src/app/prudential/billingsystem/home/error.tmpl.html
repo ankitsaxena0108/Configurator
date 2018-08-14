@@ -1,0 +1,26 @@
+<md-dialog class="commission-dialog mobile-fullwidth-dialog" flex="60" flex-xs="50"> <md-toolbar class="toolbar-default">
+<div class="md-toolbar-tools">
+	<h2 flex>
+		<span>{{vm.pageTitle}}</span>
+	</h2>
+	<md-button class="md-icon-button" ng-click="vm.clickCancel()" aria-label="cancel"> <md-icon md-font-icon="zmdi zmdi-close"></md-icon> </md-button>
+</div>
+</md-toolbar> <md-dialog-content class="md-dialog-content"> 
+
+<!-- <md-card flex class="tri-wizard-card md-whiteframe-z1 margin-bottom-100" tri-wizard>
+<md-card-content>
+<div layout="row" layout-align="left" class="md-block" ng-if="vm.errorCode">
+	<span class="md-caption" style="color: red">{{vm.errorCode}}: {{vm.errorMsg}}</span>
+</div>
+</md-card-content> </md-card> --> 
+
+	<md-divider></md-divider>
+					<md-list-item class="md-2-line" ng-if="vm.errorCode">
+					<div class="md-list-item-text">
+						<h3><b>{{vm.errorCode}}:{{vm.errorMsg}}</b></h3>
+						<!-- <p>{{vm.errorMsg}}</p> -->
+					</div>
+					</md-list-item>
+					<md-divider></md-divider>
+	<md-button ng-click="vm.clickCancel()"
+	aria-label="{{'Cancel' | triTranslate}}" translate="Cancel"></md-button> </md-dialog-content> </md-dialog>

@@ -1,0 +1,9 @@
+<div flex="noshrink" layout="column" layout-align="end none" style="max-height: 32px; font-size: small; font-weight: 200">
+    <div ng-controller="AppFooterController as footer" md-theme="{{triSkin.elements.toolbar}}" style="max-height: 32px">
+        <div class="md-toolbar-tools md-body-1" layout="row" layout-align="space-between center" style="max-height: 32px; font-size: small; font-weight: 200">
+            <h2>{{footer.settings.title}}</h2>
+            <h2 hide-xs ng-bind-html="footer.settings.copyright"></h2>
+            <h2>v{{footer.settings.version}}</h2>
+        </div>
+    </div>
+</div>

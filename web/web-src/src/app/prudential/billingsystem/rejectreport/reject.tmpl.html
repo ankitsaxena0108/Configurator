@@ -1,0 +1,71 @@
+<div layout="row" layout-xs="column" layout-align="center">
+
+	<div flex="90" flex-xs="100">
+	<md-card flex="100" flex-xs="100">
+<md-card-content>
+		<div layout layout-xs="column" flex="100">
+			<md-input-container class="md-block" flex="50"> 
+				<label translate>Policy Start Range</label> 
+					<input id="policyStartRange" name="policyStartRange"  ng-model="vm.reject.policyStartRange"> 
+			</md-input-container>
+			
+			<md-input-container class="md-block" flex="50"> 
+				<label translate>Policy End Range</label> 
+					<input id="policyEndRange" name="policyEndRange"  ng-model="vm.reject.policyEndRange"> 
+			</md-input-container>
+			
+		</div>
+		
+		<div layout layout-xs="column" flex="100">
+			<md-input-container class="md-block" flex="50"> 
+			<label>From Date </label> 
+			<input mdc-datetime-picker="" date="true" time="true" type="text" id="fromDate"
+				placeholder="From Date" show-todays-date="" min-date="date" ng-model="vm.reject.fromDate" class=" md-input"
+			readonly="readonly">
+			</md-input-container>
+			
+			<md-input-container class="md-block" flex="50"> 
+			<label>To Date </label> 
+			<input mdc-datetime-picker="" date="true" time="true" type="text" id="toDate"
+				placeholder="To Date" show-todays-date="" min-date="date" ng-model="vm.reject.toDate" class=" md-input"
+			readonly="readonly">
+			</md-input-container>
+  			<md-card-actions layout="row" layout-align="end center"> 
+				<md-button id="auditSearch" class="md-primary md-raised" ng-click="vm.searchRejectDetails()" text="Search"> 
+				<md-icon md-font-icon="zmdi zmdi-search"></md-icon>Search</md-button> 
+			</md-card-actions>
+
+			</md-card-content>
+		</md-card>
+					
+		</div>
+		
+		<div flex="100" flex-xs="100">
+		
+		<md-card> <md-card-content> <md-card-header layout-align="left"> </md-card-header> <md-table-container>
+		
+		<table md-table class="md-data-table">
+			<thead md-head>
+				<tr md-row class="myheader" ; color:white;">
+					<th md-column style="border: 1px solid grey; text-align: center">Bank Name</th>
+					<th md-column style="border: 1px solid grey; text-align: center">Rejected Code</th>
+					
+					
+				</tr>
+			</thead>
+			<tbody md-body>
+				<tr md-row ng-repeat="detail in vm.rejectSummaryDetails">
+					<td md-cell style="border: 1px solid grey; text-align: center">{{detail.bankName}}</td>
+					<td md-cell style="border: 1px solid grey; text-align: center">{{detail.rejectionCode}}</td>	
+					
+				</tr>
+			</tbody>
+		</table>
+		</md-table-container> <md-card-actions layout="row"> <md-table-pagination md-limit="vm.pagination.pageSize" md-page="vm.pagination.pageNumber"
+			md-total="{{vm.pagination.totalRecords}}" md-on-paginate="vm.getRejectDetails" md-page-select></md-table-pagination> </md-card-actions> </md-card-content> 
+	</md-card>
+			
+	</div>		
+			
+	</div>
+

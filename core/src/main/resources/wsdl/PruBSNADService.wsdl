@@ -1,0 +1,92 @@
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://interface.adservice.prubsn.com/xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="ADauthUserServiceImplService" targetNamespace="http://interface.adservice.prubsn.com/xsd">
+<wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://interface.adservice.prubsn.com/xsd" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://interface.adservice.prubsn.com/xsd">
+<xs:complexType name="aDauditBean">
+<xs:sequence>
+<xs:element minOccurs="0" name="auditID" type="xs:int"/>
+<xs:element minOccurs="0" name="channel" type="xs:string"/>
+<xs:element minOccurs="0" name="domainId" type="xs:string"/>
+<xs:element minOccurs="0" name="password" type="xs:string"/>
+<xs:element minOccurs="0" name="reqDate" type="xs:string"/>
+<xs:element minOccurs="0" name="reqIPAddress" type="xs:string"/>
+<xs:element minOccurs="0" name="resCode" type="xs:string"/>
+<xs:element minOccurs="0" name="resString" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="aDvalidateBean">
+<xs:sequence>
+<xs:element minOccurs="0" name="channel" type="xs:string"/>
+<xs:element minOccurs="0" name="domainId" type="xs:string"/>
+<xs:element minOccurs="0" name="reqIPAddress" type="xs:string"/>
+<xs:element minOccurs="0" name="resCode" type="xs:string"/>
+<xs:element minOccurs="0" name="resString" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="Exception" type="Exception"/>
+<xs:complexType name="Exception">
+<xs:sequence>
+<xs:element minOccurs="0" name="message" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+</wsdl:types>
+<wsdl:message name="authenticateUserResponse">
+<wsdl:part name="return" type="tns:aDauditBean"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="Exception">
+<wsdl:part element="tns:Exception" name="Exception"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="validateUserResponse">
+<wsdl:part name="return" type="tns:aDvalidateBean"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="authenticateUser">
+<wsdl:part name="objADauthUserRequest" type="tns:aDauditBean"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="validateUser">
+<wsdl:part name="objADvalidateUserRequest" type="tns:aDvalidateBean"></wsdl:part>
+</wsdl:message>
+<wsdl:portType name="adauthuserserviceimpl">
+<wsdl:operation name="authenticateUser">
+<wsdl:input message="tns:authenticateUser" name="authenticateUser"></wsdl:input>
+<wsdl:output message="tns:authenticateUserResponse" name="authenticateUserResponse"></wsdl:output>
+<wsdl:fault message="tns:Exception" name="Exception"></wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="validateUser">
+<wsdl:input message="tns:validateUser" name="validateUser"></wsdl:input>
+<wsdl:output message="tns:validateUserResponse" name="validateUserResponse"></wsdl:output>
+<wsdl:fault message="tns:Exception" name="Exception"></wsdl:fault>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="ADauthUserServiceImplServiceSoapBinding" type="tns:adauthuserserviceimpl">
+<soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="authenticateUser">
+<soap:operation soapAction="" style="rpc"/>
+<wsdl:input name="authenticateUser">
+<soap:body namespace="http://interface.adservice.prubsn.com/xsd" use="literal"/>
+</wsdl:input>
+<wsdl:output name="authenticateUserResponse">
+<soap:body namespace="http://interface.adservice.prubsn.com/xsd" use="literal"/>
+</wsdl:output>
+<wsdl:fault name="Exception">
+<soap:fault name="Exception" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="validateUser">
+<soap:operation soapAction="" style="rpc"/>
+<wsdl:input name="validateUser">
+<soap:body namespace="http://interface.adservice.prubsn.com/xsd" use="literal"/>
+</wsdl:input>
+<wsdl:output name="validateUserResponse">
+<soap:body namespace="http://interface.adservice.prubsn.com/xsd" use="literal"/>
+</wsdl:output>
+<wsdl:fault name="Exception">
+<soap:fault name="Exception" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="ADauthUserServiceImplService">
+<wsdl:port binding="tns:ADauthUserServiceImplServiceSoapBinding" name="adauthuserserviceimplPort">
+<soap:address location="http://10.166.68.235:8080/PruBSNADService/ADauthUserServiceImpl"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>

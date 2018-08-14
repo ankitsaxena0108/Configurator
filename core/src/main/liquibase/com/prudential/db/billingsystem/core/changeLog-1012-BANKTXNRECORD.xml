@@ -1,0 +1,118 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+	<changeSet author="Shailesh" id="changelog-1012">
+		<createTable tableName="BANKTXNRECORD">
+			<column name="ID" type="java.sql.Types.VARCHAR(100))">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			
+			<column name="SRCSYSTEM" type="java.sql.Types.VARCHAR(30))">
+				<constraints nullable="true" />
+			</column>
+			
+			<column name="BANKCODE" type="java.sql.Types.VARCHAR(30))">
+				<constraints nullable="true" />
+			</column>
+			<column name="CATEGORY" type="java.sql.Types.VARCHAR(30))">
+				<constraints nullable="true" />
+			</column>
+			
+			<column name="PAYMENTMODE" type="java.sql.Types.VARCHAR(30))">
+				<constraints nullable="true" />
+			</column>
+			
+			<column name="AMOUNT" type="java.math.BigDecimal(24,6)">
+				<constraints nullable="true" />
+			</column>
+		
+			<column name="SOURCEFILENAME" type="java.sql.Types.VARCHAR(200))">
+				<constraints nullable="true" />
+			</column>
+			
+			<column name="BANKREQUESTFILENAME" type="java.sql.Types.VARCHAR(200))">
+				<constraints nullable="true" />
+			</column>
+			<column name="TXREFNO" type="java.sql.Types.VARCHAR(30))">
+				<constraints nullable="true" />
+			</column>
+			
+			<column name="CUSTNAME" type="java.sql.Types.VARCHAR(100))">
+				<constraints nullable="true" />
+			</column>
+			
+			<column name="ACCTNO" type="java.sql.Types.VARCHAR(30))">
+				<constraints nullable="true" />
+			</column>
+			
+			<column name="CARDNO" type="java.sql.Types.VARCHAR(30))">
+				<constraints nullable="true" />
+			</column>
+
+			<column name="POLICYNO" type="java.sql.Types.VARCHAR(30))">
+				<constraints nullable="true" />
+			</column>		
+			
+			<column name="BINNUMBER" type="java.sql.Types.VARCHAR(30))">
+				<constraints nullable="true" />
+			</column>		
+
+			<column name="TXDATE" type="java.sql.Types.TIMESTAMP"/>			
+
+			<column name="RESPONSECODE" type="java.sql.Types.VARCHAR(10))">
+				<constraints nullable="true" />
+			</column>			
+
+			<column name="STATE" type="java.sql.Types.VARCHAR(50))">
+				<constraints nullable="true" />
+			</column>	
+			
+			<column name="EXPIRYDATE" type="java.sql.Types.VARCHAR(20))">
+				<constraints nullable="true" />
+			</column>		
+
+			<column name="BATCHNUMBER" type="java.sql.Types.BIGINT">
+				<constraints nullable="true" />
+			</column>
+			
+			<column name="AUDITID" type="java.sql.Types.BIGINT">
+				<constraints nullable="true" />
+			</column>
+			
+			<column name="BANKRESRECVDATE" type="java.sql.Types.TIMESTAMP" />
+			<column name="BANKREQFEEDCREATEDATE" type="java.sql.Types.TIMESTAMP" />
+			<column name="SRCRESFEEDCREATEDATE" type="java.sql.Types.TIMESTAMP" />
+			<column name="SRCREQFEEDCREATEDATE" type="java.sql.Types.TIMESTAMP" />
+			
+			<column name="BANKDETAILRECORD" type="java.sql.Types.VARCHAR(2000))">
+				<constraints nullable="true" />
+			</column>							
+
+			<column name="BANKHEADERRECORD" type="java.sql.Types.VARCHAR(2000))">
+				<constraints nullable="true" />
+			</column>
+
+			<column name="BANKFOOTERRECORD" type="java.sql.Types.VARCHAR(2000))">
+				<constraints nullable="true" />
+			</column>
+			
+			<column name="SOURCEDETAILRECORD" type="java.sql.Types.VARCHAR(2000))">
+				<constraints nullable="true" />
+			</column>							
+
+			<column name="SOURCEHEADERRECORD" type="java.sql.Types.VARCHAR(2000))">
+				<constraints nullable="true" />
+			</column>
+
+			<column name="SOURCEFOOTERRECORD" type="java.sql.Types.VARCHAR(2000))">
+				<constraints nullable="true" />
+			</column>
+			
+			<column name="LAST_MODIFIED" type="java.sql.Types.TIMESTAMP" />			
+		</createTable>
+	</changeSet>
+	
+	
+</databaseChangeLog>

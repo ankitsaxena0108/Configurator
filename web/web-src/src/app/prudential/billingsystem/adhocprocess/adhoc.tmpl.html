@@ -1,0 +1,84 @@
+<div layout="row" layout-xs="column" layout-align="center">
+	<div flex="100" flex-xs="100">
+		<md-card>
+		<form name="dashboardForm">
+			<md-card> <md-card-content> <!-- <md-card-header layout-align="left"> <span class="md-title">Template
+				Details</span> </md-card-header> --> <label><b>Template
+					Details</b></label>
+			<div layout layout-xs="column" flex="100">
+				<md-input-container class="md-block" flex=50> <label
+					translate>Category</label> <md-select name="categoryType"
+					placeholder="Category" ng-model="vm.adhoc.category"
+					ng-change="getSelectedTemplateDetails();getSelectedInputSchedule();getSelectedBankSchedule();">
+				<md-option value="Collection">Collection</md-option> <md-option
+					value="Payout">Payout</md-option> <md-option value="Enrollment">Enrollment</md-option>
+				</md-select> </md-input-container>
+
+
+			</div>
+			</md-card-content> </md-card>
+
+
+			<div class='md-padding' layout="row">
+
+				<md-card flex=50> <md-card-content> <label><b>Source
+						System Details</b></label> <md-table-container>
+				<table md-table class="md-data-table">
+					<thead md-head>
+						<tr md-row class="myheader">
+							
+							<th md-column style="border: 1px solid grey; text-align: center">Source
+								System Name</th>
+								
+							<th md-column style="border: 1px solid grey; text-align: center">Action</th>	
+
+						</tr>
+					</thead>
+					<tbody md-body>
+						<md-radio-group ng-model="" >
+						<tr md-row ng-repeat="detail in vm.sourceSystemName">						
+						
+							<td md-cell style="border: 1px solid grey; text-align: center">{{detail}}</td>
+							<td md-cell style="border: 1px solid grey; text-align: center">
+							
+								<md-button id="start" ng-click="vm.startNode(detail)" class="md-primary" aria-label="{{Start | triTranslate}}" translate="Start"> Start Node</md-button>
+							</td>
+
+						</tr>
+						
+						
+					</tbody>
+				</table>
+				</md-table-container> </md-card-content></md-card>
+				<md-card flex=50> <md-card-content> <label><b>Bank
+						Details</b></label> <md-table-container>
+				<table md-table class="md-data-table">
+					<thead md-head>
+						<tr md-row class="myheader"
+							style="background-color: rgb(0, 188, 212); color: white;">
+							<th md-column style="border: 1px solid grey; text-align: center">Bank
+								Details</th>
+							<th md-column style="border: 1px solid grey; text-align: center">Action</th>	
+
+						</tr>
+					</thead>
+					<tbody md-body>
+						<tr md-row ng-repeat="detail in vm.bankSystemName">
+							<td md-cell style="border: 1px solid grey; text-align: center">{{detail}}</td>
+							
+							<td md-cell style="border: 1px solid grey; text-align: center">
+							
+								<md-button id="start" ng-click="vm.startNode(detail)" class="md-primary" aria-label="{{Start | triTranslate}}" translate="Start"> Start Node</md-button>
+							</td>
+
+
+						</tr>
+					</tbody>
+				</table>
+				</md-table-container> </md-card-content></md-card>
+			</div>
+	</div>
+	</form>
+	</md-card>
+</div>
+</div>

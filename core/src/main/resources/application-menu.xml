@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<application-menu>
+
+ 	<!-- User Administration 
+    <menu name="User Administration" icon="zmdi zmdi-settings" priority="1" >
+        <sub-menu name="User Setup" icon="zmdi zmdi-account" priority="1.1" target="triangular.manageUser" permissions="PERM_USER_MANAGE"/>
+        <sub-menu name="Role Setup" icon="zmdi zmdi-account" priority="1.2" target="triangular.manageRole" permissions="PERM_ROLE_MANAGE"/>
+    </menu>-->
+    
+    <!-- Agency Administration -->
+    <menu name="Dashboard" icon="zmdi zmdi-settings-square" priority="1" target="triangular.dashboard" permissions="PERM_DASHBOARD" >
+        
+    </menu>
+    <menu name="Audit Enquiry" icon="zmdi zmdi-settings-square" priority="2" target="triangular.auditenquiry" permissions="PERM_AUDIT_ENQUIRY" >
+        
+    </menu>
+    
+    <menu name="Recon Report" icon="zmdi zmdi-settings-square" priority="2" target="triangular.reconreport" permissions="PERM_RECON_REPORT" >  </menu>
+    
+     <menu name="Reject Report" icon="zmdi zmdi-settings-square" priority="2" target="triangular.rejectreport" permissions="PERM_REJECT_REPORT" >  </menu>
+     
+       <menu name="Adhoc Process" icon="zmdi zmdi-settings-square" priority="2" target="triangular.adhocprocess" permissions="PERM_ADHOC_PROCESS" >  </menu>
+
+</application-menu>

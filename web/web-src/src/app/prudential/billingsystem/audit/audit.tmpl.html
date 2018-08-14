@@ -1,0 +1,127 @@
+<md-content class="padded-content-page">
+
+	<!-- <div flex="100" flex-xs="100"> -->
+	<md-card>
+	<md-card-content>
+		<div layout layout-xs="column" flex="100">
+			<md-input-container class="md-block" flex="50"> 
+				<label translate>Name</label> 
+					<input id="name" name="name" placeholder="Source/Bank System" ng-model="vm.audit.name"> 
+			</md-input-container>
+			<md-input-container class="md-block" flex="50"> 
+			<label translate>File Direction</label> 
+				<md-select id="fileDirection"  placeholder="File Direction" ng-model="vm.audit.fileDirection">
+				<md-option value=""></md-option>
+				<md-option value="Inward">Inward</md-option> 
+				<md-option value="Outward">Outward</md-option> 
+				</md-select> 
+			</md-input-container>
+		</div>
+		<div layout layout-xs="column" flex="100">
+			<md-input-container class="md-block" flex="50"> 
+			<label translate>File Category</label> 
+				<md-select id="category" placeholder="Category" ng-model="vm.audit.category">
+				<md-option value=""></md-option>
+				<md-option value="Collection">Collection</md-option> <md-option value="Payout">Payout</md-option> 
+				<md-option value="Enrollment">Enrollment</md-option> 
+				</md-select> 
+			</md-input-container>
+			<md-input-container class="md-block" flex="50"> 
+			<label translate>File Status</label> 
+				<md-select id="status" placeholder="Status" ng-model="vm.audit.status"> 
+				<md-option value=""></md-option>
+				<md-option value="SOURCE_FEED_RECIEVED">Source Feed Received</md-option> 
+				<md-option value="SOURCE_FEED_PROCESSED">Source Feed Processed</md-option> 
+				<md-option value="BANK_RES_RECEIVED">Bank Response Received</md-option> 
+				<md-option value="BANK_RESP_PROCESSED">Bank Response Processed</md-option> 
+				<md-option value="PROCESSED">Processed</md-option> 
+				<md-option value="FAILED">Failed</md-option> 
+				</md-select> 
+			</md-input-container>
+		</div>
+		
+		<div layout layout-xs="column" flex="100">
+			<md-input-container class="md-block" flex="50"> 
+			<label>From Date </label> 
+			<input mdc-datetime-picker="" date="true" time="true" type="text" id="fromDate"
+				placeholder="From Date" show-todays-date="" min-date="date" ng-model="vm.audit.fromDate" class=" md-input"
+			readonly="readonly">
+			</md-input-container>
+			
+			<md-input-container class="md-block" flex="50"> 
+			<label>To Date </label> 
+			<input mdc-datetime-picker="" date="true" time="true" type="text" id="toDate"
+				placeholder="To Date" show-todays-date="" min-date="date" ng-model="vm.audit.toDate" class=" md-input"
+			readonly="readonly">
+			</md-input-container>
+  			
+		</div>
+		<div layout layout-gt-lg="column" flex="100">
+			<md-input-container class="md-block" flex="50"> 
+			<label translate>Payment Type</label> 
+				<md-select id="paymentType" placeholder="Payment Type" ng-model="vm.audit.paymentType">
+				<md-option value=""></md-option>
+				<md-option value="DirectDebit">Direct Debit</md-option>
+				<md-option value="CreditCard">Credit</md-option> 
+				<md-option value="eBanking">E-Banking</md-option> 
+				<md-option value="Biro">Biro</md-option> 
+				</md-select> 
+		</md-input-container>
+		</div>
+		<md-card-actions layout="row" layout-align="end center"> 
+				<md-button id="auditSearch" class="md-primary md-raised" ng-click="vm.searchAudit()" text="Search"> 
+				<md-icon md-font-icon="zmdi zmdi-search"></md-icon>Search</md-button> 
+			</md-card-actions>
+		
+		</md-card-content>
+		</md-card>
+		
+		<md-card>
+		<md-content>
+		
+		   <md-table-container>
+		<table md-table class="md-data-table">
+			<thead md-head>
+				<tr md-row class="myheader" ; color:white;">
+					<th md-column style="border: 1px solid grey; text-align: center">Source/Bank Id</th>
+					<th md-column style="border: 1px solid grey; text-align: center">File Name</th>
+					<th md-column style="border: 1px solid grey; text-align: center">Category</th>
+					<th md-column style="border: 1px solid grey; text-align: center">File Direction</th>
+					<th md-column style="border: 1px solid grey; text-align: center">Payment Type</th>
+					<th md-column style="border: 1px solid grey; text-align: center">Start Date Time</th>
+					<th md-column style="border: 1px solid grey; text-align: center">End Date Time</th>
+					<th md-column style="border: 1px solid grey; text-align: center">Success Count</th>
+					<th md-column style="border: 1px solid grey; text-align: center">Failed Count</th>
+					<th md-column style="border: 1px solid grey; text-align: center">Status</th>
+					<th md-column style="border: 1px solid grey; text-align: center"></th>
+				</tr>
+			</thead>
+			<tbody md-body>
+				<tr md-row ng-repeat="detail in vm.auditSummaryDetails">
+					<td md-cell style="border: 1px solid grey; text-align: center">{{detail.systemId}}</td>
+					<td md-cell style="border: 1px solid grey; text-align: center">{{detail.fileName}}</td>
+					<td md-cell style="border: 1px solid grey; text-align: center">{{detail.fileCategory}}</td>
+					<td md-cell style="border: 1px solid grey; text-align: center">{{detail.fileDirection}}</td>
+					<td md-cell style="border: 1px solid grey; text-align: center">{{detail.paymentType}}</td>
+					<td md-cell style="border: 1px solid grey; text-align: center">{{detail.startDateTime|  date: 'yyyy/MM/dd h:mm:ss'}}</td>
+					<td md-cell style="border: 1px solid grey; text-align: center">{{detail.endDateTime|  date: 'yyyy/MM/dd h:mm:ss'}}</td>
+					<td md-cell style="border: 1px solid grey; text-align: center">{{detail.approvedTxn}}</td>
+					<td md-cell style="border: 1px solid grey; text-align: center">{{detail.rejectedTxn}}</td>
+					<td md-cell style="border: 1px solid grey; text-align: center">{{detail.fileStatus}}</td>
+					<td md-cell style="border: 1px solid grey; text-align: center">
+						<md-button class="md-icon-button" ng-click="vm.viewFileAuditDetails(detail)"
+								id="fiewFileAudit"> <md-icon md-font-icon="zmdi zmdi-open-in-new"></md-icon> </md-button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		</md-table-container> 
+		</md-content> 
+			</md-card>		
+		<div layout layout-xs="column" flex="100">
+		<md-card-actions layout="row"> <md-table-pagination md-limit="vm.pagination.pageSize" md-page="vm.pagination.pageNumber"
+			md-total="{{vm.pagination.totalRecords}}" md-on-paginate="vm.getFileAudit" md-page-select></md-table-pagination> </md-card-actions>
+			</div> 
+
+</md-content>
+

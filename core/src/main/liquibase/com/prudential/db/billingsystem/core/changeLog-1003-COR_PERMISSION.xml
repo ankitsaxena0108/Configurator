@@ -1,0 +1,19 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="Nrusingh" id="changeLog-1003">
+        <createTable tableName="COR_PERMISSION">
+            <column name="ID" type="java.sql.Types.BIGINT">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="PERMISSION_NAME" type="java.sql.Types.VARCHAR(200))">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LAST_MODIFIED" type="java.sql.Types.TIMESTAMP"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

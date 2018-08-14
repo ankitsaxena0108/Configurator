@@ -1,0 +1,39 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+	<changeSet author="Mohit" id="changelog-1009">
+		<createTable tableName="CBICONFIG">
+			<column name="ID" type="java.sql.Types.BIGINT">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			
+			<column name="CONFIGBLOB" type="java.sql.Types.BLOB">
+				<constraints nullable="true" />
+			</column>
+			
+			<column name="SCHEDULEINFO" type="java.sql.Types.BLOB">
+				<constraints nullable="true" />
+			</column>
+			<column name="FILENAME" type="java.sql.Types.VARCHAR(200))">
+				<constraints nullable="true" />
+			</column>
+			
+			<column name="CATEGORY" type="java.sql.Types.VARCHAR(50))">
+				<constraints nullable="true" />
+			</column>			
+			
+			<column name="OTHERCONFIG" type="java.sql.Types.BLOB">
+				<constraints nullable="true" />
+			</column>
+		
+			<column name="LAST_MODIFIED" type="java.sql.Types.TIMESTAMP" />
+			
+				
+			
+		</createTable>
+	</changeSet>
+
+
+</databaseChangeLog>
