@@ -135,7 +135,7 @@ public final class BankFeedConfigurator extends FeedConfigurator{
 	
 	public static void main(String[] args){
 		try{
-			BankFeedConfigurator configurator = BankFeedConfigurator.from("D:\\Prudential\\billingsystemgit\\billingsystem\\core\\src\\main\\resources\\BankConfig_Collection.xlsx");
+			BankFeedConfigurator configurator = BankFeedConfigurator.from("E:\\Prudential\\Configurator\\Core\\core\\src\\main\\resources\\BankConfig_Collection.xlsx");
 			
 		
 			

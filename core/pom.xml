@@ -245,12 +245,7 @@
 			<artifactId>commons-beanutils</artifactId>
 			<version>1.9.3</version>
 		</dependency>
-		<dependency>
-			<groupId>oracle.jdbc</groupId>
-			<artifactId>oracle</artifactId>
-			<scope>system</scope>
-			<systemPath>D:\Zambia CI\ojdbc6-11.2.0.3.jar</systemPath>
-		</dependency>
+
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
@@ -281,13 +276,11 @@
 				</configuration>
 				<dependencies>
 
-					<!-- https://mvnrepository.com/artifact/com.oracle/ojdbc6 -->
-
 
 					<dependency>
-						<groupId>oracle.jdbc</groupId>
-						<artifactId>oracle</artifactId>
-						<version>11.2.0</version>
+						<groupId>mysql</groupId>
+						<artifactId>mysql-connector-java</artifactId>
+						<version>${mysql.version}</version>
 					</dependency>
 
 				</dependencies>

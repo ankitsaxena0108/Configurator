@@ -148,12 +148,7 @@
 			<version>1.5.0</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>oracle.jdbc</groupId>
-			<artifactId>oracle</artifactId>
-			<scope>system</scope>
-			<systemPath>D:\Zambia CI\ojdbc6-11.2.0.3.jar</systemPath>
-		</dependency>
+
 		<!-- https://mvnrepository.com/artifact/commons-discovery/commons-discovery -->
 		<dependency>
 			<groupId>commons-discovery</groupId>

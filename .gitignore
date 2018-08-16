@@ -13,3 +13,4 @@ core/src/main/liquibase/liquibase-all.properties
 **/web/web-src/node_modules/**
 **/web/web-src/bower_components/**
 **/web/web-src/.tmp/**
+/.metadata/
